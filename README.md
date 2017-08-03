@@ -1,7 +1,13 @@
 # menu
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Simple demo of polymorphic menu items with relationships to their respective resources.
+
+Also, demonstrates how you might perform a bulk patch via ember data using a mixin found in a github issues comment.
+
+BatchUpdatesAdapterMixin Borrowed from github issue:
+https://github.com/emberjs/data/issues/1849#issuecomment-245641195
+Authored by:
+https://github.com/Fenntasy
 
 ## Prerequisites
 

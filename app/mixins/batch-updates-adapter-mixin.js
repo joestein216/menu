@@ -1,3 +1,8 @@
+// Borrowed from github issue:
+// https://github.com/emberjs/data/issues/1849#issuecomment-245641195
+// Authored by:
+// https://github.com/Fenntasy
+
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
