@@ -1,20 +1,34 @@
 <h1>MENU</h1>
-<ul>
+
+{{#bs-tab as |tab|}}
   {{#each model as |menuSection|}}
-    <li>{{menuSection.name}}
-      <ul>
-        {{#each menuSection.menuGroups as |menuGroup|}}
-          <li><input size="2" value={{menuGroup.position}}/> {{menuGroup.name}}
-            <ul>
-              {{#each menuGroup.menuGroupItems as |menuGroupItem|}}
-                <li><button {{action 'removeMenuGroupItem' menuGroupItem}}>X</button><input size="2" value={{menuGroupItem.position}}/> {{component menuGroupItem.menuItem.componentName menuItem=menuGroupItem.menuItem}}</li>
-              {{/each}}
-              <li><button {{action 'saveMenuGroupItemsSort' menuGroup}}>Save Menu Group Sort</button></li>
-            </ul>
-          </li>
-        {{/each}}
-        <li><button {{action 'saveMenuGroupSort' menuSection}}>Save Menu Group Sort</button></li>
-      </ul>
-    </li>
+    {{#tab.pane title=menuSection.name}}
+      <div class="row">
+        <div class="col-xs-12">
+          {{#each menuSection.menuGroups as |menuGroup|}}
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                {{menuGroup.name}}
+                <input class="form-control ordinal-input" size="2" value={{menuGroup.position}}/>
+              </div>
+              <div class="panel-body">
+                <ul class="list-group">
+                  {{#each menuGroup.menuGroupItems as |menuGroupItem|}}
+                    <li class="list-group-item">
+                      <button class="btn btn-danger" {{action 'removeMenuGroupItem'
+                        menuGroupItem}}>X</button>
+
+                      <input size="2" value={{menuGroupItem.position}} class="form-control ordinal-input" />
+
+                      {{component menuGroupItem.menuItem.componentName menuItem=menuGroupItem.menuItem}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/tab.pane}}
   {{/each}}
-</ul>
+{{/bs-tab}}
