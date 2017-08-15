@@ -1,14 +1,20 @@
 <h1>MENU</h1>
 <ul>
-  {{#each model as |menuGroup|}}
-    <li><input size="2" value={{menuGroup.position}}/> {{menuGroup.name}}
+  {{#each model as |menuSection|}}
+    <li>{{menuSection.name}}
       <ul>
-        {{#each menuGroup.menuGroupItems as |menuGroupItem|}}
-          <li><input size="2" value={{menuGroupItem.position}}/> {{component menuGroupItem.menuItem.componentName menuItem=menuGroupItem.menuItem}}</li>
+        {{#each menuSection.menuGroups as |menuGroup|}}
+          <li><input size="2" value={{menuGroup.position}}/> {{menuGroup.name}}
+            <ul>
+              {{#each menuGroup.menuGroupItems as |menuGroupItem|}}
+                <li><button {{action 'removeMenuGroupItem' menuGroupItem}}>X</button><input size="2" value={{menuGroupItem.position}}/> {{component menuGroupItem.menuItem.componentName menuItem=menuGroupItem.menuItem}}</li>
+              {{/each}}
+              <li><button {{action 'saveMenuGroupItemsSort' menuGroup}}>Save Menu Group Sort</button></li>
+            </ul>
+          </li>
         {{/each}}
-        <li><button {{action 'saveMenuGroupItemsSort' menuGroup}}>Save Menu Group Sort</button></li>
+        <li><button {{action 'saveMenuGroupSort' menuSection}}>Save Menu Group Sort</button></li>
       </ul>
     </li>
   {{/each}}
-  <li><button {{action 'saveMenuGroupSort'}}>Save Menu Group Sort</button></li>
 </ul>

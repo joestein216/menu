@@ -24,345 +24,572 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
 
-  this.get('/menu-groups', (schema, request) => {
+  this.get('/menu-sections', (schema, request) => {
     console.log(request);
     return {
       "data": [{
-        "type": "menu-group",
-        "id": "123",
+        "type": "menu-section",
+        "id": "0",
         "attributes": {
-          "name": "Featured",
-          "position": 1
+          "name": "Featured"
         },
         "relationships": {
-          "menu-group-items": {
+          "menu-groups": {
             "data": [
               {
-                "type": "menu-group-item",
-                "id": "123123"
-              }, {
-                "type": "menu-group-item",
-                "id": "123456"
-              }, {
-                "type": "menu-group-item",
-                "id": "123789"
+                "type": "menu-group",
+                "id": "0-00"
               }
             ]
           }
         }
       }, {
+        "type": "menu-section",
+        "id": "1",
+        "attributes": {
+          "name": "Services"
+        },
+        "relationships": {
+          "menu-groups": {
+            "data": [
+              {
+                "type": "menu-group",
+                "id": "1-00"
+              }, {
+                "type": "menu-group",
+                "id": "1-01"
+              }/*, {
+                "type": "menu-group",
+                "id": "1-02"
+              }*/
+            ]
+          }
+        }
+      }/*, {
+        "type": "menu-section",
+        "id": "2",
+        "attributes": {
+          "name": "Packages"
+        },
+        "relationships": {
+          "menu-groups": {
+            "data": [
+              {
+                "type": "menu-group",
+                "id": "2-00"
+              }, {
+                "type": "menu-group",
+                "id": "2-01"
+              }
+            ]
+          }
+        }
+      }, {
+        "type": "menu-section",
+        "id": "3",
+        "attributes": {
+          "name": "Series"
+        },
+        "relationships": {
+          "menu-groups": {
+            "data": [
+              {
+                "type": "menu-group",
+                "id": "3-00"
+              }, {
+                "type": "menu-group",
+                "id": "3-01"
+              }
+            ]
+          }
+        }
+      }*/],
+      "included": [{
         "type": "menu-group",
-        "id": "456",
+        "id": "0-00",
+        "attributes": {
+          "name": "Default",
+          "position": 0
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "0"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": [
+              {
+                "type": "menu-group-item",
+                "id": "0-00-001"
+              }, {
+                "type": "menu-group-item",
+                "id": "0-00-002"
+              }, {
+                "type": "menu-group-item",
+                "id": "0-00-003"
+              }, {
+                "type": "menu-group-item",
+                "id": "0-00-004"
+              }
+            ]}
+          }
+      }, {
+        "type": "menu-group",
+        "id": "1-00",
+        "attributes": {
+          "name": "Default",
+          "position": 0
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "1"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": []
+          }
+        }
+      }, {
+        "type": "menu-group",
+        "id": "1-01",
         "attributes": {
           "name": "Massage",
+          "position": 1
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "1"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": [{
+              "type": "menu-group-item",
+              "id": "1-01-001"
+            }, {
+              "type": "menu-group-item",
+              "id": "1-01-002"
+            }, {
+              "type": "menu-group-item",
+              "id": "1-01-003"
+            }]
+          }
+        }
+      }
+      /*, {s
+        "type": "menu-group",
+        "id": "1-02",
+        "attributes": {
+          "name": "Tanning",
           "position": 2
         },
         "relationships": {
-          "menu-group-items": {
+          "menu-section": {
             "data": [
               {
-                "type": "menu-group-item",
-                "id": "456123"
-              }, {
-                "type": "menu-group-item",
-                "id": "456456"
-              }, {
-                "type": "menu-group-item",
-                "id": "456789"
+                "type": "menu-section",
+                "id": "1"
               }
             ]
+          },
+          "menu-group-items": {
+            "data": [{
+              "type": "menu-group-item",
+              "id": "1-02-001"
+            }, {
+              "type": "menu-group-item",
+              "id": "1-02-002"
+            }]
           }
         }
       }, {
         "type": "menu-group",
-        "id": "789",
+        "id": "2-00",
         "attributes": {
-          "name": "Tanning",
-          "position": 3
+          "name": "Default",
+          "position": 0
         },
         "relationships": {
-          "menu-group-items": {
+          "menu-section": {
             "data": [
               {
-                "type": "menu-group-item",
-                "id": "789123"
-              }, {
-                "type": "menu-group-item",
-                "id": "789456"
-              }, {
-                "type": "menu-group-item",
-                "id": "789789"
-              }, {
-                "type": "menu-group-item",
-                "id": "999999"
+                "type": "menu-section",
+                "id": "2"
               }
             ]
+          },
+          "menu-group-items": {
+            "data": []
           }
         }
-      }],
-      "included": [{
+      }, {
+        "type": "menu-group",
+        "id": "2-01",
+        "attributes": {
+          "name": "Massage",
+          "position": 1
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "2"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": [{
+              "type": "menu-group-item",
+              "id": "2-01-001"
+            }, {
+              "type": "menu-group-item",
+              "id": "2-01-002"
+            }]
+          }
+        }
+      }, {
+        "type": "menu-group",
+        "id": "3-00",
+        "attributes": {
+          "name": "Default",
+          "position": 0
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "3"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": []
+          }
+        }
+      }, {
+        "type": "menu-group",
+        "id": "3-01",
+        "attributes": {
+          "name": "Massage",
+          "position": 1
+        },
+        "relationships": {
+          "menu-section": {
+            "data": [
+              {
+                "type": "menu-section",
+                "id": "3"
+              }
+            ]
+          },
+          "menu-group-items": {
+            "data": [{
+              "type": "menu-group-item",
+              "id": "3-01-001"
+            }, {
+              "type": "menu-group-item",
+              "id": "3-01-002"
+            }]
+          }
+        }
+      }
+      */, {
         "type": "menu-group-item",
-        "id": "123123",
+        "id": "0-00-001",
         "attributes": {
           "position": 1
         },
         "relationships": {
+          "menu-group": {
+            "data": {
+              "type": "menu-group",
+              "id": "0-00"
+            }
+          },
           "menu-item": {
             "data": {
               "type": "menu-item-service",
-              "id": "abcabc"
+              "id": "0-00-001-misvc"
+            }
+          }
+        }
+      }, {
+        "type": "menu-item-service",
+        "id": "0-00-001-misvc",
+        "attributes": {
+          "name": "Service Item 0-00-001-svc In Featured Section's Default Group",
+          "duration": "90 min"
+        },
+        "relationships": {
+          "menu-group-item": {
+            "data": {
+              "type": "menu-group-item",
+              "id": "0-00-001"
+            }
+          },
+          "service": {
+            "data": {
+              "type": "service",
+              "id": "svc-001"
             }
           }
         }
       }, {
         "type": "menu-group-item",
-        "id": "123456",
+        "id": "0-00-002",
         "attributes": {
           "position": 2
         },
         "relationships": {
+          "menu-group": {
+            "data": {
+              "type": "menu-group",
+              "id": "0-00"
+            }
+          },
           "menu-item": {
             "data": {
               "type": "menu-item-package",
-              "id": "abcdef"
+              "id": "0-00-002-mipkg"
+            }
+          }
+        }
+      }, {
+        "type": "menu-item-package",
+        "id": "0-00-002-mipkg",
+        "attributes": {
+          "name": "Package Item 0-00-001-pkg In Featured Section's Default Group",
+          "mumber-of-items": "3"
+        },
+        "relationships": {
+          "menu-group-item": {
+            "data": {
+              "type": "menu-group-item",
+              "id": "0-00-002"
+            }
+          },
+          "package": {
+            "data": {
+              "type": "package",
+              "id": "pkg-001"
             }
           }
         }
       }, {
         "type": "menu-group-item",
-        "id": "123789",
+        "id": "0-00-003",
         "attributes": {
           "position": 3
         },
         "relationships": {
+          "menu-group": {
+            "data": {
+              "type": "menu-group",
+              "id": "0-00"
+            }
+          },
           "menu-item": {
             "data": {
               "type": "menu-item-series",
-              "id": "abcghi"
+              "id": "0-00-003-misrs"
             }
           }
         }
       }, {
-        "type": "menu-group-item",
-        "id": "456123",
+        "type": "menu-item-series",
+        "id": "0-00-003-misrs",
         "attributes": {
-          "position": 1
+          "name": "Series Item 0-00-001-srs In Featured Section's Default Group",
+          "quantity": "10"
         },
         "relationships": {
-          "menu-item": {
+          "menu-group-item": {
             "data": {
-              "type": "menu-item-service",
-              "id": "defabc"
+              "type": "menu-group-item",
+              "id": "0-00-003"
+            }
+          },
+          "series": {
+            "data": {
+              "type": "series",
+              "id": "srs-001"
             }
           }
         }
       }, {
         "type": "menu-group-item",
-        "id": "456456",
-        "attributes": {
-          "position": 2
-        },
-        "relationships": {
-          "menu-item": {
-            "data": {
-              "type": "menu-item-package",
-              "id": "defdef"
-            }
-          }
-        }
-      }, {
-        "type": "menu-group-item",
-        "id": "456789",
-        "attributes": {
-          "position": 3
-        },
-        "relationships": {
-          "menu-item": {
-            "data": {
-              "type": "menu-item-series",
-              "id": "defghi"
-            }
-          }
-        }
-      }, {
-        "type": "menu-group-item",
-        "id": "789123",
-        "attributes": {
-          "position": 1
-        },
-        "relationships": {
-          "menu-item": {
-            "data": {
-              "type": "menu-item-service",
-              "id": "ghiabc"
-            }
-          }
-        }
-      }, {
-        "type": "menu-group-item",
-        "id": "789456",
-        "attributes": {
-          "position": 2
-        },
-        "relationships": {
-          "menu-item": {
-            "data": {
-              "type": "menu-item-package",
-              "id": "ghidef"
-            }
-          }
-        }
-      }, {
-        "type": "menu-group-item",
-        "id": "789789",
-        "attributes": {
-          "position": 3
-        },
-        "relationships": {
-          "menu-item": {
-            "data": {
-              "type": "menu-item-series",
-              "id": "ghighi"
-            }
-          }
-        }
-      }, {
-        "type": "menu-group-item",
-        "id": "999999",
+        "id": "0-00-004",
         "attributes": {
           "position": 4
         },
         "relationships": {
+          "menu-group": {
+            "data": {
+              "type": "menu-group",
+              "id": "0-00"
+            }
+          },
           "menu-item": {
             "data": {
               "type": "menu-item-service",
-              "id": "abcabc"
+              "id": "0-00-004-misvc"
             }
           }
         }
       }, {
         "type": "menu-item-service",
-        "id": "abcabc",
+        "id": "0-00-004-misvc",
         "attributes": {
-          "name": "Service Item"
+          "name": "Service Item svc-002 In Featured Section's Default Group",
+          "duration": "60 min"
         },
         "relationships": {
+          "menu-group-item": {
+            "data": {
+              "type": "menu-group-item",
+              "id": "0-00-004"
+            }
+          },
           "service": {
             "data": {
               "type": "service",
-              "id": "ABCABC"
+              "id": "svc-002"
             }
           }
         }
       }, {
-        "type": "menu-item-package",
-        "id": "abcdef",
+        "type": "menu-group-item",
+        "id": "1-01-001",
         "attributes": {
-          "name": "Package Item"
+          "position": 1
         },
         "relationships": {
-          "package": {
+          "menu-group": {
             "data": {
-              "type": "package",
-              "id": "ABCDEF"
+              "type": "menu-group",
+              "id": "1-01"
             }
-          }
-        }
-      }, {
-        "type": "menu-item-series",
-        "id": "abcghi",
-        "attributes": {
-          "name": "Series Item"
-        },
-        "relationships": {
-          "series": {
+          },
+          "menu-item": {
             "data": {
-              "type": "series",
-              "id": "ABCGHI"
+              "type": "menu-item-service",
+              "id": "1-01-001-misvc"
             }
           }
         }
       }, {
         "type": "menu-item-service",
-        "id": "defabc",
+        "id": "1-01-001-misvc",
         "attributes": {
-          "name": "Service Item"
+          "name": "Service Item svc-001 In Services Section's Massage Group",
+          "duration": "90 min"
         },
         "relationships": {
+          "menu-group-item": {
+            "data": {
+              "type": "menu-group-item",
+              "id": "1-01-001"
+            }
+          },
           "service": {
             "data": {
               "type": "service",
-              "id": "DEFABC"
+              "id": "svc-001"
             }
           }
         }
       }, {
-        "type": "menu-item-package",
-        "id": "defdef",
+        "type": "menu-group-item",
+        "id": "1-01-002",
         "attributes": {
-          "name": "Package Item"
+          "position": 2
         },
         "relationships": {
-          "package": {
+          "menu-group": {
             "data": {
-              "type": "package",
-              "id": "DEFDEF"
+              "type": "menu-group",
+              "id": "1-01"
             }
-          }
-        }
-      }, {
-        "type": "menu-item-series",
-        "id": "defghi",
-        "attributes": {
-          "name": "Series Item"
-        },
-        "relationships": {
-          "series": {
+          },
+          "menu-item": {
             "data": {
-              "type": "series",
-              "id": "DEFGHI"
+              "type": "menu-item-service",
+              "id": "1-01-002-misvc"
             }
           }
         }
       }, {
         "type": "menu-item-service",
-        "id": "ghiabc",
+        "id": "1-01-002-misvc",
         "attributes": {
-          "name": "Service Item"
+          "name": "Service Item svc-002 In Services Section's Massage Group",
+          "duration": "60 min"
         },
         "relationships": {
+          "menu-group-item": {
+            "data": {
+              "type": "menu-group-item",
+              "id": "1-01-002"
+            }
+          },
           "service": {
             "data": {
               "type": "service",
-              "id": "GHIABC"
+              "id": "svc-002"
             }
           }
         }
       }, {
-        "type": "menu-item-package",
-        "id": "ghidef",
+        "type": "menu-group-item",
+        "id": "1-01-003",
         "attributes": {
-          "name": "Package Item"
+          "position": 3
         },
         "relationships": {
-          "package": {
+          "menu-group": {
             "data": {
-              "type": "package",
-              "id": "GHIDEF"
+              "type": "menu-group",
+              "id": "1-01"
+            }
+          },
+          "menu-item": {
+            "data": {
+              "type": "menu-item-service",
+              "id": "1-01-003-misvc"
             }
           }
         }
       }, {
-        "type": "menu-item-series",
-        "id": "ghighi",
+        "type": "menu-item-service",
+        "id": "1-01-003-misvc",
         "attributes": {
-          "name": "Series Item"
+          "name": "Service Item svc-003 In Services Section's Massage Group",
+          "duration": "30 min"
         },
         "relationships": {
-          "series": {
+          "menu-group-item": {
             "data": {
-              "type": "series",
-              "id": "GHIGHI"
+              "type": "menu-group-item",
+              "id": "1-01-003"
+            }
+          },
+          "service": {
+            "data": {
+              "type": "service",
+              "id": "svc-003"
             }
           }
         }

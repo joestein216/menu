@@ -2,13 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('menu-group');
+    return this.store.findAll('menu-section');
   },
   actions: {
-    saveMenuGroupSort() {
-      let menuModel = this.modelFor('menu');
-
-      menuModel.map(function(menuGroup) {
+    removeMenuGroupItem(menuGroupItem) {
+      menuGroupItem.get('menuGroup.menuGroupItems').removeObject(menuGroupItem);
+      menuGroupItem.get('menuGroup').save();
+    },
+    saveMenuGroupSort(menuSection) {
+      menuSection.get('menuGroups').map(function(menuGroup) {
         menuGroup.set('position', 1);
         menuGroup.save();
       });

@@ -9,5 +9,6 @@ export default DS.Model.extend({
   }),
   displayPrice: DS.attr('string'),
   menuGroupItems: DS.hasMany('menu-group-item'),
+  name: DS.attr('string'),
   type: DS.attr('string')
 });
