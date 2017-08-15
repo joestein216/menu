@@ -1,0 +1,26 @@
+.tab-pane {
+  padding: 15px;
+}
+
+.ordinal-input {
+  width: auto;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: baseline;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.list-group-item .btn-danger {
+  margin-right: 10px;
+}
+
+.list-group-item span {
+  margin-left: auto;
+}
